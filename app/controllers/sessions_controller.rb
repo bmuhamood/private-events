@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 	def log_in
 	    validate_user = User.where(name: params[:user][:email])
 	  if validate_user.empty?
+
 	  	 redirect_to users_path
 	  else
 	    session[:name] = params[:user][:name]
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
 
 	def log_out
 	  session.destroy
+	  
 	  redirect_to users_path
 	end
 end
